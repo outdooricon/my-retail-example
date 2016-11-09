@@ -7,7 +7,8 @@
 import 'babel-polyfill';
 
 /* eslint-disable import/no-unresolved, import/extensions */
-// Load the manifest.json file and the .htaccess file
+// Load the favicon, manifest.json file and the .htaccess file
+import 'file?name=[name].[ext]!./favicon.ico';
 import '!file?name=[name].[ext]!./manifest.json';
 import 'file?name=[name].[ext]!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
@@ -27,6 +28,7 @@ import { translationMessages } from './i18n';
 
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css';
+import './global-styles';
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router

@@ -6542,6 +6542,12 @@ react-helmet@3.1.0:
     shallowequal "0.2.2"
     warning "2.1.0"
 
+react-image-gallery:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/react-image-gallery/-/react-image-gallery-0.7.3.tgz#e848ed7c75af593adab9633240fcd9795e5af364"
+  dependencies:
+    react-swipeable "^3.5.1"
+
 react-intl@2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-2.1.5.tgz#f9795ea34b790dcb5d0d8ef7060dddbe85bf8763"
@@ -6594,6 +6600,14 @@ react-side-effect@1.0.2:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-1.0.2.tgz#98e354decdbf0281e4223d87852d33e345eda561"
   dependencies:
     fbjs "0.1.0-alpha.10"
+
+react-stars:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-stars/-/react-stars-2.1.0.tgz#b3fdd63c888b86fbf634fc15abbed2ffb7db07b1"
+
+react-swipeable@^3.5.1:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-3.7.0.tgz#c51f1a9c21e132d06bb95bf75554d23f89385162"
 
 react-transform-catch-errors@^1.0.2:
   version "1.0.2"
