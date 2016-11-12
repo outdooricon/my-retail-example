@@ -24,7 +24,10 @@ function Ratings({ conReview, overallRating, proReview, totalReviews }) {
   return (
     <div>
       <SummaryRow>
-        <div>
+        <div className="sr-only">
+          <FormattedMessage {...messages.overallAria} values={{ count: overallRating }} />
+        </div>
+        <div aria-hidden>
           <SummaryStars itemProp="aggregateRating" itemScope="" itemType="http://schema.org/AggregateRating">
             <ReactStars
               color1="#999"
@@ -53,7 +56,10 @@ function Ratings({ conReview, overallRating, proReview, totalReviews }) {
             <ProConTitle>
               <FormattedMessage {...messages.proTitle} />
             </ProConTitle>
-            <ProConSubtitle>
+            <div className="sr-only">
+              <FormattedMessage {...messages.proSubtitleAria} />
+            </div>
+            <ProConSubtitle aria-hidden>
               <FormattedMessage {...messages.proSubtitle} />
             </ProConSubtitle>
             <hr aria-hidden />
@@ -69,7 +75,10 @@ function Ratings({ conReview, overallRating, proReview, totalReviews }) {
             <ProConTitle>
               <FormattedMessage {...messages.conTitle} />
             </ProConTitle>
-            <ProConSubtitle>
+            <div className="sr-only">
+              <FormattedMessage {...messages.conSubtitleAria} />
+            </div>
+            <ProConSubtitle aria-hidden>
               <FormattedMessage {...messages.conSubtitle} />
             </ProConSubtitle>
             <hr aria-hidden />

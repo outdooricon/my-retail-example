@@ -14,12 +14,8 @@ export default defineMessages({
     id: 'app.components.Returns.returnPolicy',
     defaultMessage: 'Return Policy',
   },
-  messageLine1: {
-    id: 'app.components.Returns.messageLine1',
-    defaultMessage: 'This item must be returned within 30 days of the ship date. See {policyLink} for details.',
-  },
-  messageLine2: {
-    id: 'app.components.Returns.messageLine2',
-    defaultMessage: 'Prices, promotions, styles and availability may vary by  store and online.',
+  message: {
+    id: 'app.components.Returns.message',
+    defaultMessage: 'This item must be returned within 30 days of the ship date. See {policyLink} for details. Prices, promotions, styles and availability may vary by store and online.',
   },
 });

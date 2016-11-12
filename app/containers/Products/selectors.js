@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { fromJS } from 'immutable';
 
 /**
  * Direct selector to the products state domain
@@ -14,7 +15,11 @@ const selectProductByRouteItemId = () => createSelector(
     (state, props) => props.params.itemId,
   ],
   (products, itemId) => (
-    products.find((product) => product.get('itemId') == itemId).toJS() // eslint-disable-line eqeqeq
+    products.find(
+      (product) => product.get('itemId') == itemId, // eslint-disable-line eqeqeq
+      null,
+      fromJS({})
+    ).toJS()
   )
 );
 

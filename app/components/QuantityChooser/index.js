@@ -4,27 +4,50 @@
 *
 */
 
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import React, { PropTypes } from 'react';
 
+import {
+  Button,
+  Container,
+  Count,
+} from './styles';
 import messages from './messages';
 
-function QuantityChooser({ quantity }) {
+function QuantityChooser({ intl, quantity, setProductQuantitySelector }) {
   return (
-    <div>
-      <FormattedMessage {...messages.header} />
-      <button>-</button>
-      {/* <div className="sr-only">
-        quantity is
-      </div>*/}
-      {quantity}
-      <button>+</button>
-    </div>
+    <Container>
+      <FormattedMessage
+        tagName="small"
+        {...messages.header}
+      />
+      <span className="sr-only">{quantity}</span>
+      <div>
+        <Button
+          aria-label={intl.formatMessage(messages.decreaseButtonAria, { quantity })}
+          disabled={quantity === 1}
+          onClick={() => setProductQuantitySelector(quantity - 1)}
+        >
+          −
+        </Button>
+        <Count aria-hidden>
+          {quantity}
+        </Count>
+        <Button
+          aria-label={intl.formatMessage(messages.increaseButtonAria, { quantity })}
+          onClick={() => setProductQuantitySelector(quantity + 1)}
+        >
+          +
+        </Button>
+      </div>
+    </Container>
   );
 }
 
 QuantityChooser.propTypes = {
+  intl: intlShape.isRequired,
   quantity: PropTypes.number.isRequired,
+  setProductQuantitySelector: PropTypes.func.isRequired,
 };
 
-export default QuantityChooser;
+export default injectIntl(QuantityChooser);

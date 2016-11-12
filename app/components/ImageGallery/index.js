@@ -4,7 +4,7 @@
 *
 */
 
-import { FormattedMessage } from 'react-intl';
+import { injectIntl, intlShape } from 'react-intl';
 import React, { PropTypes } from 'react';
 import ReactImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -12,11 +12,20 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import messages from './messages';
 import './styles';
 
-export function massageImageData(images) {
-  const altImages = images.AlternateImages.map((image) => (
+export function massageImageData(images, intl) {
+  const size = images.AlternateImages.length + 1;
+  const altImages = images.AlternateImages.map((image, index) => (
     {
       original: image.image,
       thumbnail: image.image,
+      originalAlt: intl.formatMessage(messages.altTextOriginal, {
+        index: index + 2,
+        size,
+      }),
+      thumbnailAlt: intl.formatMessage(messages.altTextThumbnail, {
+        index: index + 2,
+        size,
+      }),
     }
   ));
 
@@ -24,16 +33,25 @@ export function massageImageData(images) {
     {
       original: images.PrimaryImage[0].image,
       thumbnail: images.PrimaryImage[0].image,
+      originalAlt: intl.formatMessage(messages.altTextOriginal, {
+        index: 1,
+        size,
+      }),
+      thumbnailAlt: intl.formatMessage(messages.altTextThumbnail, {
+        index: 1,
+        size,
+      }),
     },
     ...altImages,
   ];
 }
 
-function ImageGallery({ images }) {
+function ImageGallery({ images, intl }) {
   return (
     <div>
       <ReactImageGallery
-        items={massageImageData(images)}
+        disableArrowKeys
+        items={massageImageData(images, intl)}
         showNav={false}
         showPlayButton={false}
       />
@@ -43,6 +61,7 @@ function ImageGallery({ images }) {
 
 ImageGallery.propTypes = {
   images: PropTypes.object.isRequired,
+  intl: intlShape.isRequired,
 };
 
-export default ImageGallery;
+export default injectIntl(ImageGallery);

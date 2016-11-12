@@ -22,12 +22,14 @@ export default function createRoutes(store) {
       name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          System.import('containers/HomePage'),
+          System.import('containers/Products/reducer'),
+          System.import('containers/Products'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([component]) => {
+        importModules.then(([reducer, component]) => {
+          injectReducer('products', reducer.default);
           renderRoute(component);
         });
 
@@ -52,28 +54,10 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
-      path: '/products',
-      name: 'products',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/Products/reducer'),
-          System.import('containers/Products'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([reducer, component]) => {
-          injectReducer('products', reducer.default);
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
-    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {
-        System.import('containers/NotFoundPage')
+        System.import('components/NotFoundPage')
           .then(loadModule(cb))
           .catch(errorLoading);
       },

@@ -5,29 +5,36 @@
 */
 
 import React, { PropTypes } from 'react';
-
 import { FormattedMessage } from 'react-intl';
+
+import {
+  Container,
+  Header,
+  Message,
+  PolicyLink,
+} from './styles';
 import messages from './messages';
 
 const policyUrl = 'http://www.target.com/HelpContent?help=/sites/html/TargetOnline/help/returns_and_refunds/returns_and_refunds.html';
 
 function Returns() {
   return (
-    <div>
-      <FormattedMessage {...messages.header} />
-      <p>
+    <Container>
+      <Header>
+        <FormattedMessage {...messages.header} />
+      </Header>
+      <Message>
         <FormattedMessage
-          {...messages.messageLine1}
+          {...messages.message}
           values={{
             policyLink:
-              <a href={policyUrl}>
+              <PolicyLink href={policyUrl}>
                 <FormattedMessage {...messages.returnPolicy} />
-              </a>,
+              </PolicyLink>,
           }}
         />
-        <FormattedMessage {...messages.messageLine2} />
-      </p>
-    </div>
+      </Message>
+    </Container>
   );
 }
 

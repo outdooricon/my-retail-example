@@ -1,22 +1,25 @@
 import styled from 'styled-components';
 
+const desktopBreakpoint = '701px';
+
 export const Container = styled.div`
-  @media (min-width: 576px) {
-    margin: 0 5%;
+  margin: 2rem 15%;
+  @media (min-width: ${desktopBreakpoint}) {
+    margin: 2rem  5% 3rem 5%;
   }
 `;
 
 export const LeftColumn = styled.div`
-  @media (min-width: 576px) {
+  @media (min-width: ${desktopBreakpoint}) {
     clear: left;
     float: left;
-    padding-right: 1.25rem;
+    padding-right: 2rem;
     width: 50%
   }
 `;
 
 export const RightColumn = styled.div`
-  @media (min-width: 576px) {
+  @media (min-width: ${desktopBreakpoint}) {
     float: right;
     width: 50%
   }
@@ -37,23 +40,6 @@ export const PriceQualifier = styled.span`
   font-size: .75rem;
   margin-left: .5rem;
   text-transform: lowercase;
-`;
-
-export const PrimaryButton = styled.button`
-  background-color: #cd0606;
-  color: white;
-  text-transform: uppercase
-`;
-
-export const SecondaryButton = styled.button`
-  background-color: black;
-  color: white;
-  text-transform: uppercase
-`;
-
-export const TertiaryButton = styled.button`
-  background-color: gray;
-  text-transform: uppercase
 `;
 
 export const Title = styled.h1`

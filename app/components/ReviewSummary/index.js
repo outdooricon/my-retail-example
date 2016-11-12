@@ -18,14 +18,19 @@ import messages from './messages';
 function ReviewSummary({ datePosted, overallRating, review, screenName, title }) {
   return (
     <Container>
-      <ReactStars
-        color1="#999999"
-        color2="#cc0000"
-        count={5}
-        edit={false}
-        size={24}
-        value={overallRating}
-      />
+      <div className="sr-only">
+        <FormattedMessage {...messages.ratingAria} values={{ count: overallRating }} />
+      </div>
+      <div aria-hidden>
+        <ReactStars
+          color1="#999999"
+          color2="#cc0000"
+          count={5}
+          edit={false}
+          size={24}
+          value={overallRating}
+        />
+      </div>
       <ReviewTitle>{title}</ReviewTitle>
       <p>{review}</p>
       <span className="sr-only">

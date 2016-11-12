@@ -10,4 +10,8 @@ export default defineMessages({
     id: 'app.components.ReviewSummary.submittedBy',
     defaultMessage: 'submitted by ',
   },
+  ratingAria: {
+    id: 'app.components.ReviewSummary.ratingAria',
+    defaultMessage: 'user rating, {count} out of 5 stars',
+  },
 });

@@ -1,15 +1,11 @@
 {
-  "name": "react-boilerplate",
+  "name": "my-retail-example",
   "version": "3.3.1",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mxstbr/react-boilerplate.git"
-  },
+  "description": "",
   "engines": {
     "npm": ">=3"
   },
-  "author": "Max Stoiber",
+  "author": "Johnathon Sanders",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",

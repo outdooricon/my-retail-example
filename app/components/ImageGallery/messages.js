@@ -10,4 +10,12 @@ export default defineMessages({
     id: 'app.components.ImageGallery.header',
     defaultMessage: 'This is the ImageGallery component !',
   },
+  altTextOriginal: {
+    id: 'app.components.ImageGallery.altTextOriginal',
+    defaultMessage: 'Image {index} out of {size}',
+  },
+  altTextThumbnail: {
+    id: 'app.components.ImageGallery.altTextThumbnail',
+    defaultMessage: 'Thumbnail {index} out of {size}',
+  },
 });
