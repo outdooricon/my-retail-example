@@ -29,6 +29,8 @@ function Ratings({ conReview, overallRating, proReview, totalReviews }) {
         </div>
         <div aria-hidden>
           <SummaryStars itemProp="aggregateRating" itemScope="" itemType="http://schema.org/AggregateRating">
+            <meta itemProp="ratingValue" content={overallRating} />
+            <meta itemProp="reviewCount" content={totalReviews} />
             <ReactStars
               color1="#999"
               color2="#cc0000"
